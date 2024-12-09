@@ -8,3 +8,12 @@ pub fn read_lines(filename: &str) -> Vec<String> {
     }
     result
 }
+
+pub fn has_duplicates<T: PartialEq>(slice: &[T]) -> bool {
+    for i in 1..slice.len() {
+        if slice[i..].contains(&slice[i - 1]) {
+            return true;
+        }
+    }
+    false
+}
